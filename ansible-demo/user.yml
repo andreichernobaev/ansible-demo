@@ -1,0 +1,43 @@
+- name: user
+  hosts: cl1
+#  vars_prompt:
+#    - name: user
+#      prompt: "Введите пользователя"
+#      private: no 
+#  vars_files:
+#    - ./my_vars.yml
+  tasks:
+    - name: Preconfig block
+      block:
+        - name: Create user
+          vars:
+            user: andrei3
+          user:
+            name: "{{ user }}"
+            state: present
+          register: error
+#         ignore_errors: yes 
+#          become: true
+#      register: out
+#    - debug:
+#        var: out    
+#      debugger: always
+        - name: Install curl
+          apt:
+            name: curl
+            update-cache: yes
+          register: error
+#        - name: Fail on FAILED
+#          command: echo "FAILED"
+#          register: command_result
+#          failed_when: "'FAILED' in command_result.stdout"
+      become: true
+      when: ansible_facts['distribution'] == 'Ubuntu'
+      rescue:
+        - name: Some error print
+          debug:
+            var: error
+      always:
+        - name: Reboot
+          debug:
+            msg: "Reboooooooting"
