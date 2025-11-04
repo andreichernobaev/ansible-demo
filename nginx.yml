@@ -1,0 +1,19 @@
+---
+- name: Deploy Nginx Container with Ansible
+  hosts: demo
+  become: true
+  tasks:
+    - name: Pull the Nginx image
+      community.docker.docker_image:
+        name: nginx
+        source: pull
+    - name: Deploy Nginx container
+      community.docker.docker_container:
+        name: my_nginx
+        image: nginx
+        volumes:
+          - /home/andrei/ansible-demo/www/default.conf:/etc/nginx/conf.d/default.conf
+          - /home/andrei/ansible-demo/www/index.html:/usr/share/nginx/html/index.html
+        ports:
+          - "8081:80"
+        state: started
