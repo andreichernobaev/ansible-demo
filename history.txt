@@ -1,0 +1,215 @@
+  682  sudo apt update && sudo apt upgrade -y.
+  683  sudo apt update && sudo apt upgrade -y
+  684  sudo apt install -y software-properties-common
+  685  sudo add-apt-repository --yes --update ppa:ansible/ansible
+  686  sudo apt install -y ansible
+  687  ansible --version
+  688  sudo poweroff
+  689  exit
+  690  ansible --version
+  691  nano /etc/ansible/ansible.cfg
+  692  ls
+  693  mkdir ansible-demo
+  694  cd ansible-demo
+  695  nano hosts.ini
+  696  ansible -i hosts.ini -m user -a "name=andrei state=present" demo
+  697  ssh andrei@127.0.0.1
+  698  hostname
+  699  ssh andrei@ubuntu1
+  700  mc
+  701  ssh-keygen
+  702  mc
+  703  ssh andrei@ubuntu1
+  704  ansible -i hosts.ini -m user -a "name=andrei state=present" demo
+  705  ansible -i hosts.ini -m ping demo
+  706  ansible -i hosts.ini -m user -a "name=andrei2 state=present" -b -K demo
+  707  ansible -i hosts.ini -m user -a "name=andrei2 state=absent" -b -K demo
+  708  ansible -i hosts.ini -m user -a "name=andrei2 state=present" -e "ansible_become=true ansible_become_password="  demo
+  709  ansible -i hosts.ini -m user -a "name=andrei2 state=absent" -b -K demo
+  710  nano user.yml
+  711  ansible-playbook -i hosts.ini user.yml
+  712  nano user.yml
+  713  ansible-playbook -i hosts.ini user.yml
+  714  nano user.yml
+  715  ansible-playbook -i hosts.ini user.yml
+  716  ansible-playbook -i hosts.ini user.yml -K
+  717  mc
+  718  ansible-playbook -i hosts.ini user.yml -K
+  719  nano my_vars.yml
+  720  nano user.yml
+  721  ansible-playbook -i hosts.ini user.yml -K
+  722  mkdir group_vars
+  723  cd group_vars
+  724  cd demo
+  725  mkdir demo
+  726  cd demo
+  727  nano vars.yml
+  728  ansible-playbook -i hosts.ini user.yml -K
+  729  cd ~/ansible-demo
+  730  ansible-playbook -i hosts.ini user.yml -K
+  731  mk
+  732  mc
+  733  ansible-playbook -i hosts.ini user.yml -K
+  734  ls
+  735  mkdir host_vars
+  736  cd host_vars
+  737  nano 127.0.0.1.yml
+  738  ls
+  739  cd ~/ansible-demo/
+  740  ansible-playbook -i hosts.ini user.yml -K
+  741  mkdir demo-server
+  742  cd demo-server
+  743  nono demo
+  744  nano demo
+  745  cd ..
+  746  ansible-playbook -i demo-server user.yml -K
+  747  ansible-playbook -i demo-server -K
+  748  cd demo-server
+  749  mkdir group_vars
+  750  cd group_vars
+  751  nano all.yml
+  752  cd ~/ansible-demo
+  753  ansible-playbook -i demo-server -K
+  754  ansible-playbook -i demo-server user.yml -K
+  
+  756  ansible-playbook -i demo-server user.yml -K --extra-vars "user=andrei8"
+  757  mc
+  758  ansible-playbook -i demo-server user.yml -K
+  759  mc
+  760  ansible-playbook -i demo-server user.yml -K
+  761  ansible -i hosts.ini -m setup  demo
+
+  793  mc
+  794  ansible -i hosts.ini -m setup -a 'filter=ansible_all_ipv4_addresses,ansible_os_family,ansible_distribution_version,ansible_hostname,ansible_env'  demo
+  795  ansible -i hosts.ini -m setup -a 'filter=ansible_all_ipv4_addresses,ansible_os_family,ansible_distribution_version,ansible_hostname,ansible_env'  demo  > info.txt
+  796  mc
+  797  nano info.txt
+  798  nano user.yml
+  799  ansible-playbook -i demo-server user.yml -K
+  800  nano user.yml
+  801  ansible-playbook -i demo-server user.yml -K
+  802  mc
+  803  nano user.yml
+  804  ansible-playbook -i demo-server user.yml -K
+
+  819  sudo poweroff
+  820  mc
+  821  cd ansible-demo/
+  822  nano user1.yml
+  823  ls
+  824  cls
+  825  ansible-playbook -i demo-server user1.yml -K
+
+  832  nano user1.yml
+  833  history
+  834  nano user1.yml
+  835  nano user.yml
+  836  sudo poweroff
+  837  ls
+  838  cd ansible-demo
+  839  nano config.yml
+  840  mc
+  841  history
+  842  ping 192.168.1.42
+  843  ssh andrei@192.168.1.42
+  844  ansible -i hosts.ini -m user -a "name=andrei state=present" server1
+  845  ansible -i hosts.ini -m user -a "name=andrei state=present" demo
+  846  ansible -i hosts.ini -m user -a "name=andrei1 state=present" demo
+  847  ansible -i hosts.ini -m user -a "name=andrei1 state=present" -K demo
+  848  ansible -i hosts.ini -m user -a "name=andrei1 state=present" -K server1
+  849  mc
+  850  ansible -i hosts.ini -m user -a "name=andrei1 state=present" -K server1
+  851  ssh andrei@192.168.1.42
+  852  mc
+  853  ansible -i hosts.ini -m user -a "name=andrei1 state=present" -K cl1
+  854  mc
+  855  ssh andrei@192.168.1.42
+  856  ansible -i hosts.ini -m user -a "name=andrei1 state=present" -K cl1
+  857  ansible -i hosts.ini -m ping demo
+  858  ansible -i hosts.ini -m ping cl1
+  859  ansible -i hosts.ini -m user -a "name=andrei2 state=present" -b -K demo
+  860  ansible -i hosts.ini -m user -a "name=andrei2 state=present" -b -K cl1
+  861  mc
+  862  ansible-playbook -i hosts.ini user.yml
+  863  mc
+  864  ansible-playbook -i hosts.ini user.yml
+  865  mc
+  866  ansible-playbook -i hosts.ini user.yml
+  867  mc
+  868  ansible-playbook -i hosts.ini user1.yml
+  869  ansible-playbook -i hosts.ini user.yml -K demo
+  870  ansible-playbook -i hosts.ini user.yml  demo -K
+  871  ansible-playbook -i hosts.ini user.yml
+  872  ansible-playbook -i hosts.ini user.yml -K
+  873  mc
+  874  ansible-playbook -i hosts.ini user.yml -K
+  875  mc
+  876  ansible-playbook -i hosts.ini config.yml -K
+
+  887  sudo poweroff
+  888  nano nginx.yml
+  889  mc
+  890  nano nginx.yml
+  891  sudo pip3 install ansible-dev-tools
+  892  sudo apt-get install
+  893  sudo apt-get install pip3
+  894  sudo apt-get -y install ansible-lint
+  895  ls
+  896  cd ansible-demo
+  897  ansible-lint config.yml
+  898  ansible-lint
+  899  python --version
+  900  python3 --version
+  901  mc
+  902  export PYTHONPATH=$PYTHONPATH:/path/to/ansible
+  903  ansible-lint
+  904  pip3 install --upgrade ansible
+  905  sudo pip3 install --upgrade ansible
+  906  pip3 install --upgrade ansible
+  907  pip install --upgrade ansible
+  908  ansible-lint
+  909  pip install --upgrade ansible
+  910  sudo pip install --upgrade ansible
+  911  ansible-playbook -i hosts.ini user.yml -K
+  912  mc
+  913  ls -a
+  914  ls -al
+  915  nano nginx.yml
+  916  mkdir www
+  917  mc
+  918  nano nginx.yml
+  919  mc
+  920  nano nginx.yml
+  921  docker images
+
+  927  ansible-playbook -i hosts.ini nginx.yml -K
+  928  docker ps
+  929  docker exec -ti my_nginx  sh
+  930  exit
+  931  docker ps
+  932  docker stop nginx
+  933  docker stop my_nginx
+  934  docker stop registry
+  935  docker rm my_nginx
+  936  docker registry
+  937  docker ps
+  938  docker ps -a
+  939  nano nginx.yml
+  940  ls
+  941  cd ansible-demo
+  942  ls
+
+  947  docker exec -ti my_nginx  sh
+  948  docker rm my_nginx -f
+  949  docker ps
+
+  979  pwd
+  980  mc
+  981  pwd
+  982  mc
+  983  ansible-playbook -i hosts.ini nginx.yml -K
+  984  docker exec -ti my_nginx  sh
+  985  docker rm my_nginx -f
+  986  mc
+  987  ansible-playbook -i hosts.ini nginx.yml -K
+  988  history

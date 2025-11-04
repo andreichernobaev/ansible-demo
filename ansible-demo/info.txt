@@ -1,0 +1,37 @@
+127.0.0.1 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "172.19.0.1",
+            "192.168.1.59",
+            "172.17.0.1",
+            "172.21.0.1",
+            "172.20.0.1",
+            "172.18.0.1"
+        ],
+        "ansible_distribution_version": "24.04",
+        "ansible_env": {
+            "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+            "HOME": "/home/andrei",
+            "LANG": "en_US.UTF-8",
+            "LOGNAME": "andrei",
+            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+            "PWD": "/home/andrei",
+            "SHELL": "/bin/bash",
+            "SHLVL": "0",
+            "SSH_CLIENT": "127.0.0.1 53738 22",
+            "SSH_CONNECTION": "127.0.0.1 53738 127.0.0.1 22",
+            "SSH_TTY": "/dev/pts/2",
+            "TERM": "xterm-256color",
+            "USER": "andrei",
+            "XDG_RUNTIME_DIR": "/run/user/1000",
+            "XDG_SESSION_CLASS": "user",
+            "XDG_SESSION_ID": "90",
+            "XDG_SESSION_TYPE": "tty",
+            "_": "/bin/sh"
+        },
+        "ansible_hostname": "ubuntu1",
+        "ansible_os_family": "Debian",
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false
+}
