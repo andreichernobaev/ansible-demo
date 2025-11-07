@@ -1,0 +1,168 @@
+    1  sudo -i
+    2  exit
+    3  ip a
+    4  sudo apt install mc
+    5  mc
+    6  ip a
+    7  mc
+    8  sudo poweroff
+    9  exit
+   10  mc
+   11  ping server2
+   12  ping server1
+   13  ping server3
+   14  ip a
+   15  docker swarm init
+   16  exit
+   17  docker swarm join-token manager
+   18  exit
+   19  ip a
+   20  docker node ls
+   21  docker service create --name redis redis
+   22  docker service ls
+   23  docker service inspect redis --pretty
+   24  docker service ps
+   25  docker service ps redis
+   26  docker service logs redis
+   27  docker service rm redis
+   28  docker service create --name redis redis
+   29  docker service inspect redis --pretty
+   30  docker service ls
+   32  docker service scale redis=2
+   33  docker service ls
+   34  docker service logs redis
+   35  docker service update redis --image=redis:3.0.2
+   36  docker service ls
+   37  docker service rm redis
+   38  docker service ls
+   39  docker node ls
+   41  ls
+   42  nano sec.txt
+   43  docker secret create my_pass sec.txt
+   44  docker secret ls
+   45  docker service rm redis
+   46  docker secret ls
+   47  docker node ls
+   48  docker service ls
+   50  docker service create --secret my_pass --name redis redis
+   51  docker node ls
+   53  docker service ps redis
+   54  exit
+   55  docker secret inspect my_pass
+   56  docker rm my_pass
+   57  docker secret rm my_pass
+   58  docker service rm redis
+   59  docker secret rm my_pass
+   61  echo "1223" | docker config create my_conf -
+   62  docker config ls
+   63  docker config inspect my_conf
+   64  docker service create --config my_conf --name redis redis
+   65  docker service ps redis
+   66  docker ps
+   68  docker exec -ti redis.1.yixvyhsy3y4wyy3h3et1lgmtd bash
+   69  docker node update server1 --label-add registry=true
+   70  docker node inspect server1
+   75  docker service create --name registry --publish 5000:5000 --constraint node.labels.registry==true --mount type=bind,source=/home/andrei/registry,destination=/var/lib/registry -e REGISTRY_HTTP_ADDR=0.0.0.0:5000 registry:latest
+   77  docker service  rm registry
+   78  mc
+   79  mkdir registry
+   80  mc
+   81  docker service create --name registry --publish 5000:5000 --constraint node.labels.registry==true --mount type=bind,source=/home/andrei/registry,destination=/var/lib/registry -e REGISTRY_HTTP_ADDR=0.0.0.0:5000 registry:latest
+   82  docker service ls
+   83  exit
+   84  scp -r andrei@192.168.1.59:/home/andrei/docker-demo  /home/andrei/docker-demo
+   85  mc
+   86  cd docker-demo
+   88  docker build -t localhost:5000/api:latest -f apps/api/Dockerfile .
+   89  docker images
+   90  docker push localhost:5000/api
+   91  exit
+   92  git clone https://github.com/AlariCode/docker-demo-3.git
+   93  ls
+   94  cd docker-demo-3
+   95  docker build -t localhost:5000/ip:latest  .
+   96  docker --debug
+   97  docker push localhost:5000/ip:latest
+   98  exit
+   99  docker service create  --publish 3000:3000 --name ip --replicas=3 localhost:5000/ip:latest
+  100  docker service ls
+  101  docker service rm pgxyhmzejboo
+  102  docker service ls
+  103  docker service rm yku4qi6j7o2j
+  104  docker service ls
+  105  docker service ps ip
+  106  curl localhost:3000
+  107  exit
+  108  history
+  109  ls
+  110  cd docker-demo
+  111  docker secret create api.env .env
+  112  docker secret ls
+  113  ls
+  114  nano docker-compose4.yml
+  115  docker stack ls
+  116  docker stack ps
+  117  docker stack deploy -c docker-compose4.yml my_app
+  118  docker service ls
+  119  docker stack ls
+  120  docker stack services my_app
+  121  docker service rm ip
+  122  docker stack ls
+  123  docker service ls
+  124  docker stack ps my_app
+  125  docker stack logs my_app_api
+  126  docker service logs my_app_api
+  127  mc
+   12  docker node update --availability=pause server3
+   13  docker node inspect server3
+   14  docker node inspect server3 --pretty
+   15  docker node ls
+   16  docker node update --availability=active server3
+   17  docker node ls
+   18  top
+   19  exit
+   20  history
+   21  exit
+   22  docker node update --availability=active server5
+   23  docker node update --availability=active server4
+   24  docker node update --availability=active server3
+   25  docker node update --availability=active server2
+  132  docker images
+  133  docker stack deploy -c docker-compose4.yml my_app
+  134  docker stack ps my_app
+  135  exit
+  136  docker service logs my_app_api
+  139  docker stack ps my_app
+  142  cd docker-demo
+  143  docker stack rm my_app
+  144  exit
+  145  cd docker-demo
+  159  docker stack deploy -c docker-compose4.yml my_app
+  160  docker service logs my_app_api
+  161  docker stack ps my_app
+  162  docker service logs my_app_api
+  163  exit
+  164  ls
+  165  cd docker-demo-3
+  166  mc
+  167  docker build -t localhost:5000/ip .
+  168  docker push localhost:5000/ip:latest
+  169  docker service ls
+  172  docker service create --name ip localhost:5000/ip
+  173  docker service ps
+  174  docker service ps ip
+  175  exit
+  176  docker node ls
+  177  docker service ls
+  179  docker service scale ip=10
+  180  docker service ls
+  181* docker service create --name ip-global --mode global localhost:5000/i
+  182  docker service ls
+  183  docker node ls
+  184  docker service ls
+  185  docker service ps ip-global
+  186  docker service ps ip
+  187  docker service ls
+  188  docker node ls
+  190  docker node update server4 --availability drain
+  
