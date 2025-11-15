@@ -213,3 +213,63 @@
   986  mc
   987  ansible-playbook -i hosts.ini nginx.yml -K
   988  history
+
+  304  mkdir ansible
+  305  cd ansible
+  306  mkdir roles
+  307  cd roles
+  308  mkdir preconfig
+  309  cd preconfig
+  310  mkdir tasks
+  311  cd tasks
+  312  nano main.yaml
+  313  mc
+  314  nano all.yml
+  315  mc
+  316  pwd
+  317  cd /home/andrei/ansible
+  318  mkdir inventory
+  319  cd inventory
+  320  mc
+  321  mkdir cluster
+  322  nano cluster
+  323  ls
+  324  mc
+  325  cd cluster
+  326  nano cluster
+  330  ssh-keygen -t ed25519
+  350  ansible-playbook -i inventory all.yml -K
+  351  cd  /home/andrei/ansible/roles/preconfig/
+  352  ls
+  353  mkdir meta
+  354  cd meta
+  355  nano main.yml
+  356  cd ~/ansible
+  370  ansible-playbook -i inventory all.yml -K
+  371  mc
+  372  ls
+  373  cd roles
+  374  mk dir
+  375  mkdir deploy
+  376  cd deploy
+  377  mkdir tasks
+  378  nano main.yml
+  379  mc
+  380  cd ..
+  381  mc
+  382  ansible-playbook -i inventory all.yml -K
+  389  ansible-galaxy collection install debops.roles03
+  390  ansible-galaxy collection list
+  392  nano requirements.yml
+  393  ls
+  394  ansible-galaxy install -r requirements.yml
+  397  sudo apt upgrade
+  398  ansible --version
+  399  sudo add-apt-repository --yes --update ppa:ansible/ansible
+  400  sudo apt install -y ansible
+  401  ansible --version
+  402  sudo apt upgrade
+  404  sudo apt --fix-broken install
+  405  ansible --version
+  408  ansible-playbook -i inventory all.yml -K
+  410  ansible-galaxy init roles/name
