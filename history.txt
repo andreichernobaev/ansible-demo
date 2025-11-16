@@ -273,3 +273,4 @@
   405  ansible --version
   408  ansible-playbook -i inventory all.yml -K
   410  ansible-galaxy init roles/name
+  ansible-playbook -i inventory all.yml -K --tags "deploy"
