@@ -274,3 +274,14 @@
   408  ansible-playbook -i inventory all.yml -K
   410  ansible-galaxy init roles/name
   ansible-playbook -i inventory all.yml -K --tags "deploy"
+  727  ansible-vault encrypt group_vars/all/vault.yml
+  728  ansible-vault decrypt group_vars/all/vault.yml
+  730  ansible-vault view group_vars/all/vault.yml
+  731  ansible-vault edit group_vars/all/vault.yml
+  735  ansible-playbook -i inventory all.yml  --tags "deploy" --ask-vault-pass
+  737  ansible-vault decrypt group_vars/all/vault.yml
+  738  ansible-vault encrypt group_vars/all/vault.yml --vault-id dev@prompt
+  739  ansible-playbook -i inventory all.yml  --tags "deploy" --vault-id dev@.pass
+  740  ansible-vault decrypt group_vars/all/vault.yml --vault-id dev@.pass
+  745  ansible-playbook -i inventory all.yml  --tags "api"
+
